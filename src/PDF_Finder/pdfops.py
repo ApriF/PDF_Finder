@@ -1,3 +1,15 @@
+
+
+import asyncio, json, logging, logging.handlers, pathlib, re, urllib.parse, argparse, shutil
+from typing import Dict, Any, List, Optional
+
+import httpx
+import pandas as pd
+import yaml
+from pypdf import PdfReader
+from tqdm.asyncio import tqdm_asyncio
+
+
 def search_pdf(pdf_path: pathlib.Path, needles: List[str]) -> Dict[str, Any]:
     """
     Text search (casefolded substrings). If you need OCR later, add an opt-in pass here.

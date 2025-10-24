@@ -1,6 +1,14 @@
 
 
 
+import asyncio, json, logging, logging.handlers, pathlib, re, urllib.parse, argparse, shutil
+from typing import Dict, Any, List, Optional
+
+import httpx
+import pandas as pd
+import yaml
+from pypdf import PdfReader
+from tqdm.asyncio import tqdm_asyncio
 
 # CLI shim
 if __name__ == "__main__":

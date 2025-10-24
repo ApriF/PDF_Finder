@@ -1,3 +1,15 @@
+
+import asyncio, json, logging, logging.handlers, pathlib, re, urllib.parse, argparse, shutil
+from typing import Dict, Any, List, Optional
+
+import httpx
+import pandas as pd
+import yaml
+from pypdf import PdfReader
+from tqdm.asyncio import tqdm_asyncio
+
+
+
 async def backoff_request(client: httpx.AsyncClient, method: str, url: str, **kwargs) -> httpx.Response:
     log = logging.getLogger("harvest")
     max_tries, base = 6, 0.5
@@ -38,6 +50,8 @@ def best_pdf_url(ua: Dict[str, Any]) -> Optional[str]:
         pdf = loc.get("url_for_pdf") or loc.get("url")
         if pdf: return pdf
     return None
+
+
 
 async def download_pdf(client: httpx.AsyncClient, url: str, out_path: pathlib.Path) -> bool:
     log = logging.getLogger("harvest")
