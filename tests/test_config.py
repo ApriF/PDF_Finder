@@ -3,6 +3,7 @@ from pathlib import Path
 import yaml
 import PDF_Finder as pf
 
+# ruff formatting
 def test_config_defaults():
     cfg = pf.Config(input_excel="input.xlsx")
     assert cfg.input_excel == "input.xlsx"
@@ -12,7 +13,7 @@ def test_config_defaults():
     assert cfg.concurrency == 5
     assert cfg.write_after_each_batch == True
     assert cfg.output_dir == "output"
-    
+
     assert cfg.folders.downloads == "downloads"
     assert cfg.folders.found == "output_found"
     assert cfg.folders.notfound == "output_notfound"
@@ -32,6 +33,7 @@ def test_config_defaults():
     assert cfg.logging.rotate_bytes == 10_485_760
     assert cfg.logging.backup_count == 5
 
+
 def test_config_from_yaml(tmp_path: Path):
     yaml_content = {
         "input_excel": "dois.xlsx",
@@ -43,9 +45,18 @@ def test_config_from_yaml(tmp_path: Path):
         "output_dir": "Output",
         "folders": {"downloads": "dl", "found": "of", "notfound": "onf"},
         "cache": {"enabled": False, "force_refresh": True},
-        "http": {"user_agent": "some_agent/1.0", "max_connections": 10, "max_keepalive": 11},
+        "http": {
+            "user_agent": "some_agent/1.0",
+            "max_connections": 10,
+            "max_keepalive": 11,
+        },
         "timeouts": {"read": 50.5, "connect": 15.5},
-        "logging": {"level": "inf", "file": "some_file", "rotate_bytes": 29, "backup_count": 11}
+        "logging": {
+            "level": "inf",
+            "file": "some_file",
+            "rotate_bytes": 29,
+            "backup_count": 11,
+        },
     }
 
     yaml_file = tmp_path / "config.yaml"
@@ -59,14 +70,14 @@ def test_config_from_yaml(tmp_path: Path):
     assert cfg.concurrency == 15
     assert cfg.write_after_each_batch == False
     assert cfg.output_dir == "Output"
- 
+
     assert cfg.folders.downloads == "dl"
     assert cfg.folders.found == "of"
     assert cfg.folders.notfound == "onf"
-    
+
     assert cfg.cache.enabled is False
     assert cfg.cache.force_refresh is True
-    
+
     assert cfg.http.user_agent == "some_agent/1.0"
     assert cfg.http.max_keepalive == 11
     assert cfg.http.max_connections == 10
