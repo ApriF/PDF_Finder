@@ -31,3 +31,6 @@ Homepage = "https://github.com/ApriF/PDF_Finder"
 
 [project.scripts]
 pdf-finder = "PDF_Finder.cli:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
