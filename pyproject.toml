@@ -8,7 +8,7 @@ version = "1.0.0"
 description = "A two-stage asynchronous DOI and PDF harvester using Crossref and Unpaywall APIs"
 readme = "README.md"
 authors = [
-    { name="Cyprien Biseau", email="your_email@example.com" },
+    { name="Cyprien Biseau", email="cypbiseau@student.agh.edu.pl" },
     { name="Marko Vulovic", email="mvulovic@student.agh.edu.pl" }
 ]
 requires-python = ">=3.9"
