@@ -1,14 +1,17 @@
 
-import asyncio, json, logging, logging.handlers, pathlib, re, urllib.parse, argparse, shutil
-from typing import Dict, Any, List, Optional
+# http_utils.py
+from __future__ import annotations
+
+import asyncio
+import logging
+import urllib.parse
+from typing import Any, Dict, Optional
+import pathlib
 
 import httpx
-import pandas as pd
-import yaml
-from pypdf import PdfReader
-from tqdm.asyncio import tqdm_asyncio
 
-
+CROSSREF = "https://api.crossref.org/works/"
+UNPAYWALL = "https://api.unpaywall.org/v2/"
 
 async def backoff_request(client: httpx.AsyncClient, method: str, url: str, **kwargs) -> httpx.Response:
     log = logging.getLogger("harvest")

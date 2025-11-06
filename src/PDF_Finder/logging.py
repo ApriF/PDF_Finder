@@ -1,15 +1,12 @@
+# logging_utils.py
+import logging
+import logging.handlers
+import pathlib
+from pathlib import Path
+from typing import Any
+from .config import Config
 
-
-import asyncio, json, logging, logging.handlers, pathlib, re, urllib.parse, argparse, shutil
-from typing import Dict, Any, List, Optional
-
-import httpx
-import pandas as pd
-import yaml
-from pypdf import PdfReader
-from tqdm.asyncio import tqdm_asyncio
-
-def setup_logging(cfg: Dict[str, Any], out_dir: pathlib.Path):
+def setup_logging(cfg: dict[str, Any], out_dir: pathlib.Path):
     log_cfg = cfg.get("logging", {})
     level = getattr(logging, log_cfg.get("level", "INFO").upper(), logging.INFO)
     (out_dir / "logs").mkdir(parents=True, exist_ok=True)

@@ -1,14 +1,15 @@
-
-
-import asyncio, json, logging, logging.handlers, pathlib, re, urllib.parse, argparse, shutil
-from typing import Dict, Any, List, Optional
-
-import httpx
-import pandas as pd
+# cache.py
+import json
+import logging
+import re
+import pathlib
 import yaml
-from pypdf import PdfReader
-from tqdm.asyncio import tqdm_asyncio
+from pathlib import Path
+from typing import Any, Dict, Optional
 # ---------------- Utils & dirs ----------------
+
+
+
 
 def sanitize_filename(s: str) -> str:
     s = s.strip().replace("doi:", "").replace("DOI:", "")

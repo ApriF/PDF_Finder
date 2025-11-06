@@ -1,14 +1,13 @@
 
+# pdfops.py
+from __future__ import annotations
 
-import asyncio, json, logging, logging.handlers, pathlib, re, urllib.parse, argparse, shutil
-from typing import Dict, Any, List, Optional
+import logging
+import pathlib
+from pathlib import Path
+from typing import Any, Dict, List
 
-import httpx
-import pandas as pd
-import yaml
 from pypdf import PdfReader
-from tqdm.asyncio import tqdm_asyncio
-
 
 def search_pdf(pdf_path: pathlib.Path, needles: List[str]) -> Dict[str, Any]:
     """

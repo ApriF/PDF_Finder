@@ -1,0 +1,7 @@
+httpx
+pandas
+pypdf
+pyyaml
+tqdm
+openpyxl
+httpx[http2]

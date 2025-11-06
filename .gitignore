@@ -1,0 +1,11 @@
+output/
+downloads/
+cache/
+__pycache__/
+*.pyc
+*.pyo
+
+.venv/
+venv/
+env/
+
