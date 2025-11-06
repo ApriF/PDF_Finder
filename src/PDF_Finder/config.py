@@ -6,7 +6,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict
 
-
+# ruff formatting
 @dataclass
 class FolderConfig:
     downloads: str = "downloads"
@@ -81,5 +81,3 @@ class Config:
             timeouts=subcls(TimeoutConfig, "timeouts"),
             logging=subcls(LoggingConfig, "logging"),
         )
-
-

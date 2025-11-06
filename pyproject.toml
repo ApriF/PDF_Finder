@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "PDF_Finder"
+version = "1.0.0"
+description = "A two-stage asynchronous DOI and PDF harvester using Crossref and Unpaywall APIs"
+readme = "README.md"
+authors = [
+    { name="Cyprien Biseau", email="your_email@example.com" },
+    { name="Marko Vulovic", email="mvulovic@student.agh.edu.pl" }
+]
+requires-python = ">=3.9"
+
+dependencies = [
+    "httpx>=0.24.0",
+    "pandas>=1.5.0",
+    "PyYAML>=6.0",
+    "pypdf>=4.0.0",
+    "tqdm>=4.65.0",
+    "openpyxl>=3.1.0",
+    "reportlab>=3.6.12",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-asyncio", "respx"]
+
+[project.urls]
+Homepage = "https://github.com/ApriF/PDF_Finder"
+
+[project.scripts]
+pdf-finder = "PDF_Finder.cli:main"

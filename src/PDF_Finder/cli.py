@@ -3,9 +3,11 @@ import argparse
 import asyncio
 from .orchestrator import run
 
-
+# ruff formatting
 def main():
-    parser = argparse.ArgumentParser(description="Batched DOI harvester: staged downloads → processing → reports")
+    parser = argparse.ArgumentParser(
+        description="Batched DOI harvester: staged downloads → processing → reports"
+    )
     parser.add_argument("--config", required=True, help="Path to YAML config file")
     args = parser.parse_args()
     asyncio.run(run(args.config))

@@ -1,4 +1,3 @@
-
 # pdfops.py
 from __future__ import annotations
 
@@ -9,6 +8,7 @@ from typing import Any, Dict, List
 
 from pypdf import PdfReader
 
+# ruff formatting
 def search_pdf(pdf_path: pathlib.Path, needles: List[str]) -> Dict[str, Any]:
     """
     Text search (casefolded substrings). If you need OCR later, add an opt-in pass here.
@@ -28,7 +28,8 @@ def search_pdf(pdf_path: pathlib.Path, needles: List[str]) -> Dict[str, Any]:
             page_hit = False
             for n in ns:
                 if n in txt:
-                    hits.add(n); page_hit = True
+                    hits.add(n)
+                    page_hit = True
             if page_hit:
                 pages.add(i + 1)
         if hits:
@@ -36,6 +37,7 @@ def search_pdf(pdf_path: pathlib.Path, needles: List[str]) -> Dict[str, Any]:
     except Exception as e:
         logging.getLogger("harvest").warning(f"PDF parse failed {pdf_path}: {e}")
     return res
+
 
 def move_pdf_atomic(src: pathlib.Path, dst_dir: pathlib.Path) -> pathlib.Path:
     """
