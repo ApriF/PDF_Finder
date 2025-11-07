@@ -80,7 +80,7 @@ doi
 
 ### Run 
 
-pdf-finder --config config.yaml
+python -m src.PDF_Finder.cli --config config.yaml
 
 ### Output structure: 
 output/
